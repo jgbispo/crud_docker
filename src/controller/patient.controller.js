@@ -31,7 +31,7 @@ export const get_patients = (req, res) => {
   })
 }
 
-export const create_patients = (req, res) => {
+export const create_patient = (req, res) => {
   logger.info(`${req.method} ${req.originalurl}, create patients`)
   database.query(QUERY.CREATE_PATIENT, Object.values(req.body), (error, results) => {
     if (error) {
@@ -73,7 +73,7 @@ export const get_patient = (req, res) => {
   })
 }
 
-export const update_patients = (req, res) => {
+export const update_patient = (req, res) => {
   logger.info(`${req.method} ${req.originalurl}, fetching patients`)
   database.query(QUERY.SELECT_PATIENT, [req.params.id], (error, results) => {
     if (error) {

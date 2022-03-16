@@ -7,6 +7,8 @@ import Response from './domain/response.js'
 import logger from './util/logger.js'
 import HttpStatus from './controller/patient.controller.js'
 
+import patient_router from './router/patient.route.js'
+
 // Configuring access to environment variables
 dotenv.config()
 
@@ -19,15 +21,15 @@ app.use(cors({ origin: '*' }))
 app.use(express.json())
 
 // Routes
-app.get('/', (req, res) => {
+app.use('/patients', patient_router)
 
-  const response = new Response(
-    HttpStatus.OK.code,
-    HttpStatus.OK.status,
-    'Patient API, v1.0.0 - All System Go'
-  )
+app.all('/', (req, res) => {
+  res.send(new Response(HttpStatus.OK.status, HttpStatus.OK.code, `Patient API, v1.0.0 - All System Go `))
+})
 
-  res.send(response)
+app.get('*', (req, res) => {
+  res.status(HttpStatus.NOT_FOUND.code)
+    .send(new Response(HttpStatus.NOT_FOUND.status, HttpStatus.NOT_FOUND.code, `Not Found Route`))
 })
 
 // Stating server
