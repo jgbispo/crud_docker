@@ -3,6 +3,8 @@ import ip from 'ip'
 import dotenv from 'dotenv'
 import cors from 'cors'
 
+import Response from './domain/response.js'
+
 // Configuring access to environment variables
 dotenv.config()
 
@@ -16,10 +18,23 @@ app.use(express.json())
 
 // Routes
 app.get('/', (req, res) => {
-  res.send({ message: 'UP' })
+
+  const patients = {
+    fist_name: "João Gustavo",
+    last_name: "Soares Bispo",
+    email: "jgbispo20@gmail.com",
+    phone: "+5527998558423",
+    address: "Rua do Exemplo, ExemploBairro - ExempCity/MG - 2838219 Brasil",
+    diafnosis: "Nenhum",
+    image_url: "http:www.imgens.com",
+
+  }
+  const response = new Response(200, 'OK', 'Patient API, v1.0.0 - All System Go', patients)
+
+  res.send(response)
 })
 
 // Stating server
 app.listen(PORT, () => {
-  console.log(`Server is runing on: http://${ip.address()}:${PORT}`)
+  console.log(`Server is running on: http://${ip.address()}:${PORT}`)
 })
