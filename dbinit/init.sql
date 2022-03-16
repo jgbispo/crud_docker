@@ -11,7 +11,7 @@ CREATE TABLE patients (
   email       VARCHAR(255) DEFAULT NULL,
   phone       VARCHAR(255) DEFAULT NULL,
   address     VARCHAR(255) DEFAULT NULL,
-  diafnosis   VARCHAR(255) DEFAULT NULL,
+  diagnosis   VARCHAR(255) DEFAULT NULL,
   image_url   VARCHAR(255) DEFAULT null,
   created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),

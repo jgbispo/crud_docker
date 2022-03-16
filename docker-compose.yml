@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./dbinit/init.sql:/docker-entrypoint-initdb.d/0_init.sql
-      - $HOME/containers/
+      - $HOME/database/:/var/lib/mysql
     ports:
       - 3306:3306
     expose:
@@ -20,7 +20,6 @@ services:
       SERVICES_NAME: mysqldb
     networks:
       - internalnet
-
 
 networks:
   internalnet:
