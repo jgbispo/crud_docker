@@ -1,0 +1,27 @@
+{
+  "name": "crud-docker-api",
+  "version": "1.0.0",
+  "description": "Nodejs API with Express and MySql(Docker)",
+  "main": "index.js",
+  "type": "module",
+  "repository": "git@github.com:jgbispo/crud_docker.git",
+  "author": "João Gustavo <jgbispo20@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:test": "NODE_ENV=test",
+    "start:dev": "NODE_ENV=dev nodemon src/index.js",
+    "start:prod": "NODE_ENV=prod node src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "ip": "^1.1.5",
+    "mysql": "^2.18.1",
+    "pino": "^7.8.1",
+    "pino-pretty": "^7.5.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
