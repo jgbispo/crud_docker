@@ -16,6 +16,7 @@ export const get_patients = (req, res) => {
   logger.info(`${req.method} ${req.originalurl}, fetching patients`)
   database.query(QUERY.SELECT_PATIENTS, (error, results) => {
     if (error) {
+      logger.error(error.message)
       res.status(HttpStatus.NO_CONTENT.code).send(new Response(
         HttpStatus.NO_CONTENT.code,
         HttpStatus.NO_CONTENT.status,
