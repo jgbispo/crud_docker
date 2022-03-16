@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 
 import Response from './domain/response.js'
-
+import logger from './util/logger.js'
 // Configuring access to environment variables
 dotenv.config()
 
@@ -36,5 +36,5 @@ app.get('/', (req, res) => {
 
 // Stating server
 app.listen(PORT, () => {
-  console.log(`Server is running on: http://${ip.address()}:${PORT}`)
+  logger.info(`Server is running on: http://${ip.address()}:${PORT}`)
 })
